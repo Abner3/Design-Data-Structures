@@ -3,6 +3,7 @@ public class HeapPQ<E extends Comparable<E>> implements MyPriorityQueue<E> {
 	private E[] heap;
 	private int objectCount;
 	
+	//this is a min heap. First index has the lowest value
 	public HeapPQ()
     {
         this.heap = (E[])new Comparable[3];
@@ -10,40 +11,48 @@ public class HeapPQ<E extends Comparable<E>> implements MyPriorityQueue<E> {
     }
 	
 	//Adds obj to the Priority Queue
+	//START AT INDEX 1
+	//Check
 	public void add(E obj)
 	{
-		
+		heap[1 + objectCount]  = obj;
+		bubbleUp(1 + objectCount);
+		this.objectCount++;
 	}
 	
 	//Removes and returns the MINIMUM element from the Priority Queue
-	//the closer to a the smaller the number
 	public E removeMin()
 	{
 		E temp = heap[1]; //store for return at the end
+		heap[1] = null; //Check this
 		
-		//"sort" the heap tree out
-		swap(1, heap.length);
+		//"sort" the heap tree out because index 1 is now removed
+		swap(1, objectCount+1);
 		bubbleDown(1);
 		
+		this.objectCount--;
 		return temp;
 	}
 	
 	//Returns the MINIMUM element from the Priority Queue without removing it
+	//Check
 	public E peek()
 	{
 		return heap[1];
 	}
 	
 	// Returns true if the priority queue is empty
+	//Check
 	public boolean isEmpty()
 	{
-		return heap.length==0;
+		return (objectCount < 1); //if objCount is less than 1, returns true
 	}
 	
 	//Returns the number of elements in the priority queue
+	//Check
 	public int size()
 	{
-		return heap.length;
+		return objectCount;
 	}
 	
 	public String toString()
@@ -83,10 +92,11 @@ public class HeapPQ<E extends Comparable<E>> implements MyPriorityQueue<E> {
 	//helper methods
 	
 	//Doubles the size of the heap array
+	//Check
 	private void increaseCapacity()
 	{
 		E[] tempHeap = (E[])new Comparable[heap.length*2];
-		for(int x = 0; x <= heap.length; x++)
+		for(int x = 1; x <= objectCount; x++)
 		{
 			tempHeap[x] = heap[x];
 		}
@@ -94,40 +104,46 @@ public class HeapPQ<E extends Comparable<E>> implements MyPriorityQueue<E> {
 	}
 
 	//Returns the index of the "parent" of index i
+	
 	private int parent(int i) throws NullPointerException
 	{
-		//check if it has a parent
-		if(i == 1)
+		//check clause
+		if(i <= 0 || i >= heap.length)
 		{
 			throw new NullPointerException();
 		}
 		
-		//node i/2 round down for parent
-		if(i%2==1)
-		{
-			return (i/2)-1;
-		}
 		return i/2;
 	}
 	
 	//Returns the *smaller child* of index i
+	//should work
 	private int smallerChild(int i) throws NullPointerException
 	{
 		//node i's children: node 2i or 2i+1
+		E plusOne = null, timesTwo = null;
+		//check that children exist
 		
-		if(2*i+1 > heap.length)
-		{
-			if(i*2 > heap.length)
-				throw new NullPointerException();
-			return i*2;
-		}
+		//check if 2i+1 exists
+		if(2*i+1 < heap.length)
+			plusOne = heap[2*i+1];
 		
-		//now we know children are present
-		if(heap[i*2].compareTo(heap[i*2+1]) > 0)
-			return i*2;
+		//check if 2i exists
+		if(2*i < heap.length)
+			timesTwo = heap[2*i];
+		
+		//compare the two children
+		if (timesTwo.compareTo(plusOne) > 1)
+			return 2*i+1; //return index of plusOne
+		
+		if (plusOne.compareTo(timesTwo) > 1)
+			return 2*i; //return index of timesTwo
+			
+		return -1; //return if conditions don't find the smaller child
 	}
 	
 	//Swaps the contents of indices i and j
+	//check
 	private void swap(int i, int j)
 	{
 		E temp = heap[i];
@@ -137,24 +153,30 @@ public class HeapPQ<E extends Comparable<E>> implements MyPriorityQueue<E> {
 	}
 
 	// Bubbles the element at index i upwards until the heap properties hold again.
+	// Heap property = min heap
+	//check
 	private void bubbleUp(int i)
 	{
-		//check if it even has a parent
-		if(i >= 1)
+		//check if it even has a parent | base case
+		if(i <= 1)
 			return;
 		
+		
 		//use swap(int, int) and parent(int)
-		swap(i, parent(i));
-		bubbleUp(parent(i));
+		while(heap[parent(i)].compareTo(heap[i]) > 1) //while parent is bigger than child (current i)
+		{
+			swap(i, parent(i));
+		}
 	}
 	
 	// Bubbles the element at index i downwards until the heap properties hold again.
+	// 2i or 2i+1 for child
 	private void bubbleDown(int i)
 	{
-		if(heap[parent(i)].compareTo(heap[i]) > 0 && heap[smallerChild(i)].compareTo(heap[i]) < 0)
-		{
+		int counter = 1;
+		if(heap[parent(i)].compareTo(heap[i]) > 1 && heap[smallerChild(i)].compareTo(heap[i]) < 1) //this holds correct heap properties | base case
 			return;
-		}
+		
 		swap(i, smallerChild(i));
 		bubbleDown(smallerChild(i));
 	}
