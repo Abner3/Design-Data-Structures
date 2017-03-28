@@ -1,0 +1,23 @@
+import java.util.Scanner;
+
+public class GreatGatsbyTester {
+
+	public static void main(String[] args) 
+	{
+		Scanner kb = new Scanner(System.in);
+		
+		
+		System.out.println("File to read from?");
+		fileNameIn = kb.next();
+		System.out.println("Markov chain order?");
+		chainOrder = kb.nextInt();
+		System.out.println("File to output to?");
+		fileNameOut = kb.next();
+		System.out.println("Number of characters to write?");
+		numOfCharacters = kb.nextInt();
+		
+		GreatGatsby first = new GreatGatsby(fileNameIn, chainOrder, fileNameOut, numOfCharacters);
+				
+		kb.close();
+	}
+}

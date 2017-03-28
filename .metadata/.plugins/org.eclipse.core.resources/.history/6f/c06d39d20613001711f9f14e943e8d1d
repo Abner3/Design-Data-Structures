@@ -1,0 +1,45 @@
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.util.*;
+
+
+public class GreatGatsby 
+{
+	private static int chainOrder, numOfCharacters;
+	private static String fileNameIn, fileNameOut;
+	private String finalWord;
+	private BufferedReader readThis;
+	public GreatGatsby(String one, int two, String three, int four)
+	{
+		//use buffered reader
+		fileNameIn = one;
+		chainOrder = two;
+		fileNameOut = three;
+		numOfCharacters = four;
+		readThis = new BufferedReader(new FileReader(new File(fileNameIn)));
+	}
+	/**
+	 * @param one the string to figure out the combination
+	 * @return the char that comes after the string
+	 */
+	
+	
+	/**
+	 * 
+	 * @param one
+	 * @return
+	 */
+	public char nextChar(String one)
+	{
+		computeCombinations();
+		
+		return 'a';
+	}
+	
+	public void computeCombinations(String one)
+	{
+		
+	}
+	
+}
