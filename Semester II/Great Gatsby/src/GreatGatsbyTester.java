@@ -1,4 +1,9 @@
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.Scanner;
+
 
 public class GreatGatsbyTester {
 
@@ -6,7 +11,7 @@ public class GreatGatsbyTester {
 	private static String fileNameIn, fileNameOut;
 	private static char current;
 	
-	public static void main(String[] args) 
+	public static void main(String[] args) throws IOException 
 	{
 		Scanner kb = new Scanner(System.in);
 		
@@ -24,6 +29,16 @@ public class GreatGatsbyTester {
 		
 		GreatGatsby first = new GreatGatsby(fileNameIn, chainOrder, fileNameOut, numOfCharacters);
 		
+		StringBuffer gatsbyStringBuffer = new StringBuffer();
+		BufferedReader br = new BufferedReader(new FileReader(fileNameIn));
+		while(br.ready())
+		{
+			gatsbyStringBuffer.append((char)br.read());
+		}
+		first.computeCombinations(gatsbyStringBuffer.toString());
+		
+		
+		br.close();
 		System.out.println("second greatgatsby");
 		kb.close();
 	}

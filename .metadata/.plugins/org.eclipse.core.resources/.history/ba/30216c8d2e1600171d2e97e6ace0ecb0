@@ -1,29 +1,14 @@
-import java.util.*;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
 
 
-public class GreatGatsby 
-{
+public class GreatGatsbyTester {
+
 	private static int chainOrder, numOfCharacters;
 	private static String fileNameIn, fileNameOut;
 	private static char current;
 	
-	public GreatGatsby(String one, int two, String three, int four)
-	{
-		//use buffered reader
-		fileNameIn = one;
-		chainOrder = two;
-		fileNameOut = three;
-		numOfCharacters = four;
-	}
-	
-	public ()
-	{
-		
-	}
-	
-	
-	
-	public static void main(String[] args) 
+	public static void main(String[] args) throws FileNotFoundException 
 	{
 		Scanner kb = new Scanner(System.in);
 		
@@ -37,10 +22,14 @@ public class GreatGatsby
 //		System.out.println("Number of characters to write?");
 //		numOfCharacters = kb.nextInt();
 		
-//		GreatGatsby first = new GreatGatsby(fileNameIn, chainOrder, fileNameOut, numOfCharacters);
+		chainOrder = 2; numOfCharacters = 100; fileNameIn = "thegreatgatsby.txt"; fileNameOut = "thegreatgastby2.txt";
 		
-		GreatGatsby first = new GreatGatsby();
+		GreatGatsby first = new GreatGatsby(fileNameIn, chainOrder, fileNameOut, numOfCharacters);
 		
+		for(int counter = 0; counter < numOfCharacters; counter+= chainOrder)
+			
+		
+		System.out.println("second greatgatsby");
 		kb.close();
 	}
 }

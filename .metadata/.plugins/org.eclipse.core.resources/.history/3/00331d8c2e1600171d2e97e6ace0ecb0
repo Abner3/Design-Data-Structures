@@ -47,10 +47,6 @@ public class GreatGatsby
 		return (String)store.get(randomInt);
 	}
 	
-	/**
-	 * @param one the whole string of greatgatsby
-	 * @return the hashmap is made with all combinations
-	 */
 	public void computeCombinations(String one)
 	{
 		String temp;
@@ -61,12 +57,10 @@ public class GreatGatsby
 			//initializing the arrayList
 			if(mainMap.get(temp) == null)
 			{				//put(key, value) //value is String ArrayList //add a string to the ArrayList
-				mainMap.put(temp,new ArrayList<String>()).add(one.substring(chainOrder+counter, chainOrder+counter+1));
+				mainMap.put(temp,new ArrayList()).add(one.substring(chainOrder+counter, chainOrder+counter+1));
 			}
 			else
-			{
-				mainMap.get(temp).add(one.substring(chainOrder+counter, chainOrder+counter+1));
-			}
+					mainMap.put(temp, mainMap.get(temp).add(one.substring(chainOrder+counter, chainOrder+counter+1)));
 		}
 	}
 	

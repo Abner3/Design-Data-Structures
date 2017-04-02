@@ -1,5 +1,5 @@
 import java.util.Scanner;
-
+import java.
 public class GreatGatsbyTester {
 
 	private static int chainOrder, numOfCharacters;
@@ -20,9 +20,12 @@ public class GreatGatsbyTester {
 //		System.out.println("Number of characters to write?");
 //		numOfCharacters = kb.nextInt();
 		
-		chainOrder = 2; numOfCharacters = 100; fileNameIn = "greatgatsby.txt"; fileNameOut = "greatgastbyout.txt";
+		chainOrder = 2; numOfCharacters = 100; fileNameIn = "thegreatgatsby.txt"; fileNameOut = "thegreatgastby2.txt";
 		
 		GreatGatsby first = new GreatGatsby(fileNameIn, chainOrder, fileNameOut, numOfCharacters);
+		
+		for(int counter = 0; counter < numOfCharacters; counter+= chainOrder)
+			
 		
 		System.out.println("second greatgatsby");
 		kb.close();
