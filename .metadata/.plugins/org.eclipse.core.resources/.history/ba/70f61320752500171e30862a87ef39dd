@@ -1,0 +1,58 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class RunLengthTester
+{
+
+	int totalNumber, remainder, timesDivisible;
+
+	public static void main(String[] args) 
+	{
+
+		
+		BufferedReader br = new BufferedReader(new FileReader("testfile.txt"));
+
+
+
+		//		BufferedReader br = new BufferedReader(new FileReader("testfile.txt"));
+
+
+		FileWriter fw = new FileWriter("output.txt");
+
+		while(br.ready())
+		{
+			int currentChar = br.read();
+			int nextChar = br.read();
+
+			if(currentChar == nextChar)
+			{
+				int nextChar = br.read();
+
+				if(nextChar > 255)
+				{
+					totalNumber = nextChar;
+					timesDivisible = totalNumber / 255;
+					remainder = timesDivisible % 255;
+				}
+				else
+				{
+					remainder = nextChar % timesDivisible;
+				}
+			}
+
+			//for characters that are repeated more than 255 
+			for(int counter = 0; counter < timesDivisible; counter++)
+			{
+				fw.write(currentChar + currentChar + (char)255);
+			}
+
+			//printing characters that are repeated less than 255 (mostly all cases)
+			fw.write(currentChar + currentChar + (char)remainder);
+		}
+
+	}
+}
+
+
