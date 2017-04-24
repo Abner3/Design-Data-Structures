@@ -1,0 +1,46 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class RunLengthDecoder
+{
+	public static void main(String[] args) throws IOException 
+	{
+		int currentChar, nextChar;
+		int totalNumber;
+
+
+		BufferedReader br = new BufferedReader(new FileReader("RLEtest.txt"));
+
+
+
+		//		BufferedReader br = new BufferedReader(new FileReader("testfile.txt"));
+
+
+		FileWriter fw = new FileWriter("output.txt");
+
+		while(br.ready())
+		{
+			currentChar = br.read();
+			nextChar = br.read();			
+
+
+			if(currentChar == nextChar)
+			{
+				totalNumber = br.read();
+			}
+			
+			
+			for(int counter = 0; counter < (int)totalNumber; counter++)
+			{
+				fw.write(currentChar);
+			}
+		}
+
+		br.close();
+		fw.close();
+	}
+}
+
+
