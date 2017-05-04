@@ -11,14 +11,14 @@ public class RunLengthDecoder
 		int totalNumber;
 
 
-		BufferedReader br = new BufferedReader(new FileReader("RLEmystery.txt"));
+		BufferedReader br = new BufferedReader(new FileReader("RLEdecodeTest.txt"));
 
 
 		FileWriter fw = new FileWriter("outputDecoder.txt");
 
+		currentChar = (char) br.read();
 		while(br.ready())
 		{
-			currentChar = (char) br.read();
 			nextChar = (char) br.read();	
 			totalNumber = 1;
 
@@ -26,12 +26,18 @@ public class RunLengthDecoder
 			if(currentChar == nextChar)
 			{
 				totalNumber = br.read();
+				
+				for(int counter = 0; counter < totalNumber; counter++)
+				{
+					fw.write(currentChar);
+					currentChar = nextChar;
+				}
 			}
 			
-			
-			for(int counter = 0; counter < totalNumber; counter++)
+			else
 			{
-				fw.write(currentChar);
+				fw.write(nextChar);
+				currentChar = nextChar;
 			}
 		}
 

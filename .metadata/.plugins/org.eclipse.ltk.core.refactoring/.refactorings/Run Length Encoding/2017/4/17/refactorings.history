@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;Run Length Encoding/RLEtest.txt&apos; to &apos;RLEencodeTest.txt&apos;" description="Rename resource &apos;RLEtest.txt&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="RLEtest.txt" name="RLEencodeTest.txt" stamp="1493223439328" updateReferences="true"/>&#x0A;<refactoring comment="Rename resource &apos;Run Length Encoding/RLEdecodeTest&apos; to &apos;RLEdecodeTest.txt&apos;" description="Rename resource &apos;RLEdecodeTest&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="RLEdecodeTest" name="RLEdecodeTest.txt" stamp="1493224442935" updateReferences="true"/>
+</session>
