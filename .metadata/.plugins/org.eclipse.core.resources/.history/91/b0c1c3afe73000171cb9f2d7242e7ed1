@@ -5,19 +5,13 @@ import java.lang.*;
 
 public class HuffmanEncoding {
 
-	private PriorityQueue<Node> tree;
 	private Map<Character, Integer> frequency;
-	private ArrayList<Node> listOfNodes;
 
 	
 	public HuffmanEncoding(BufferedReader brFile) throws IOException
 	{
 		frequency = new HashMap<Character, Integer>();
-		listOfNodes = new ArrayList();
-		tree = new PriorityQueue();
 		countCharacters(brFile);
-		listOfNodes();
-		createTree();
 	}
 	
 	
@@ -41,21 +35,13 @@ public class HuffmanEncoding {
 	}
 	
 	
-	public void listOfNodes()
-	{
-		for(Character key: frequency.keySet())
-		{
-			listOfNodes.add(new Node(key,frequency.get(key)));
-		}
-	}
-
-	public void createTree()
+	public void huffmanTree()
 	{
 		
 	}
-	
+
 	/**
-	 * @return contents of hashset; # of occurrences of a char
+	 * @return contents of hashset; # of occurances of a char
 	 */
 	public String toString()
 	{

@@ -12,14 +12,14 @@ public class Node implements Comparable<Node>
 		this.counter = counter;
 	}
 	
+	public void setReftNode(Node node1)
+	{
+		left = node1;
+	}
+	
 	public void setRightNode(Node node1)
 	{
 		right = node1;
-	}
-	
-	public void setLeftNode(Node node1)
-	{
-		left = node1;
 	}
 	
 	public Node getRightNode()

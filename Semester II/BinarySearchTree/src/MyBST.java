@@ -225,7 +225,7 @@ public class MyBST
 	 * {
 	 * 	if(node == null)
 	 * 		do stuff here
-	 * 	else if(nodenode is what we want 
+	 * 	else if(node node is what we want 
 	 * 		Change node
 	 * 	else
 	 * 	{

@@ -1,5 +1,5 @@
 
-public class Node implements Comparable<Node>
+public class Node 
 {
 	int counter;
 	char letter;
@@ -12,14 +12,14 @@ public class Node implements Comparable<Node>
 		this.counter = counter;
 	}
 	
+	public void setReftNode(Node node1)
+	{
+		left = node1;
+	}
+	
 	public void setRightNode(Node node1)
 	{
 		right = node1;
-	}
-	
-	public void setLeftNode(Node node1)
-	{
-		left = node1;
 	}
 	
 	public Node getRightNode()
@@ -35,11 +35,6 @@ public class Node implements Comparable<Node>
 	public void add(int count)
 	{
 		this.counter += count;
-	}
-	
-	public int compareTo(Node other)
-	{
-		return this.counter - counter;
 	}
 	
 	public String toString()

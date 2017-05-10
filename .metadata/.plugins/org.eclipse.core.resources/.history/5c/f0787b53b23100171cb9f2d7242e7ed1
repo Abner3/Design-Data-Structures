@@ -5,7 +5,6 @@ import java.lang.*;
 
 public class HuffmanEncoding {
 
-	private PriorityQueue<Node> tree;
 	private Map<Character, Integer> frequency;
 	private ArrayList<Node> listOfNodes;
 
@@ -14,10 +13,8 @@ public class HuffmanEncoding {
 	{
 		frequency = new HashMap<Character, Integer>();
 		listOfNodes = new ArrayList();
-		tree = new PriorityQueue();
 		countCharacters(brFile);
 		listOfNodes();
-		createTree();
 	}
 	
 	
@@ -49,13 +46,8 @@ public class HuffmanEncoding {
 		}
 	}
 
-	public void createTree()
-	{
-		
-	}
-	
 	/**
-	 * @return contents of hashset; # of occurrences of a char
+	 * @return contents of hashset; # of occurances of a char
 	 */
 	public String toString()
 	{

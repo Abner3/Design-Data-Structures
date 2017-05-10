@@ -10,8 +10,6 @@ public class Tester
 		
 		
 		HuffmanEncoding huffman = new HuffmanEncoding(br);
-		//use heap
-		
 		System.out.println(huffman.toString());
 		
 		
