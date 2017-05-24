@@ -10,21 +10,22 @@ public class GreatGatsby
 	private static int chainOrder, numOfCharacters;
 	private static String fileNameIn, fileNameOut;
 	private String finalWord;
-	private BufferedReader readThis;
-	
+	private BufferedReader br;
 	private HashMap<String,ArrayList<String>> mainMap;
 	
 	
 	
-	public GreatGatsby(String one, int two, String three, int four) throws FileNotFoundException
+	public GreatGatsby(String fileNameIn, int chainOrder, String fileNameOut, int numOfCharacters) throws FileNotFoundException
 	{
 		//use buffered reader
-		fileNameIn = one;
-		chainOrder = two;
-		fileNameOut = three;
-		numOfCharacters = four;
-		readThis = new BufferedReader(new FileReader(new File(fileNameIn)));
-		mainMap = new HashMap<String,ArrayList<String>>(); //actually using ArrayList for chars
+		this.fileNameIn = fileNameIn;
+		this.chainOrder = chainOrder;
+		this.fileNameOut = fileNameOut;
+		this.numOfCharacters = numOfCharacters;
+		this.mainMap = new HashMap<String,ArrayList<String>>(); //actually using ArrayList for chars
+		br = new BufferedReader(new FileReader("fileNameIn"));
+		
+		computeCombinations();
 	}
 	
 	
@@ -51,9 +52,27 @@ public class GreatGatsby
 	 * @param one the whole string of greatgatsby
 	 * @return the hashmap is made with all combinations
 	 */
-	public void computeCombinations(String one)
+	public void computeCombinations()
 	{
-		String temp;
+		//use chainOrder
+		char first, second, third;
+		String phrase;
+		
+		first = (char) br.read();
+		
+		while(br.ready())
+		{
+			second = (char) br.read();
+			phrase = (char)first + (char)second;
+			third = (char) br.read();
+			if(mainMap.get(phrase) == null)
+				mainMap.put(phrase,new ArrayList<String>()).add(second + third);
+			else
+				mainMap.get(phrase).add(second + third);
+
+		}
+		
+		
 		for(int counter = 0; counter < one.length(); counter++)
 		{
 			temp = one.substring(counter, chainOrder+counter);

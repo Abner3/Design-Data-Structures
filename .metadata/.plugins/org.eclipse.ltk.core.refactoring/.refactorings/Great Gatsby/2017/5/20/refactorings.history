@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename local variable &apos;four&apos; in &apos;GreatGatsby.GreatGatsby(...)&apos; to &apos;numOfCharacters&apos;&#x0A;- Original project: &apos;Great Gatsby&apos;&#x0A;- Original element: &apos;GreatGatsby.GreatGatsby(String, int, String, int).four&apos;&#x0A;- Renamed element: &apos;four&apos;&#x0A;- Update references to refactored element" description="Rename local variable &apos;four&apos;" id="org.eclipse.jdt.ui.rename.local.variable" input="/src&lt;{GreatGatsby.java[GreatGatsby~GreatGatsby~QString;~I~QString;~I@four!460!467!464!467!I!0!true" name="numOfCharacters" references="true" stamp="1495037112066" version="1.0"/>
+</session>

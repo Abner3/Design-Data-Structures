@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename field &apos;tree&apos; in &apos;HuffmanEncoding&apos; to &apos;priorityQueue&apos;&#x0A;- Original project: &apos;Huffman Encoding&apos;&#x0A;- Original element: &apos;HuffmanEncoding.tree&apos;&#x0A;- Renamed element: &apos;HuffmanEncoding.priorityQueue&apos;&#x0A;- Update references to refactored element&#x0A;- Update textual occurrences in comments and strings" delegate="false" deprecate="false" description="Rename field &apos;tree&apos;" flags="589826" getter="false" id="org.eclipse.jdt.ui.rename.field" input="/src&lt;{HuffmanEncoding.java[HuffmanEncoding^tree" name="priorityQueue" references="true" setter="false" stamp="1494518716160" textual="false" version="1.0"/>
+</session>

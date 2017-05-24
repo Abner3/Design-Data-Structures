@@ -1,0 +1,59 @@
+
+public class Node implements Comparable<Node>
+{
+	int huffmanCode;
+	char letter;
+	Node left, right;
+	
+	
+	public Node(char letter, int counter)
+	{
+		this.letter = letter;
+		this.huffmanCode = counter;
+	}
+	
+	public void setRightNode(Node node1)
+	{
+		right = node1;
+	}
+	
+	public void setLeftNode(Node node1)
+	{
+		left = node1;
+	}
+	
+	public void setHuffmanCode(int huffmanCode)
+	{
+		this.huffmanCode = huffmanCode;
+	}
+	
+	public Node getRightNode()
+	{
+		return right;
+	}
+	
+	public Node getLeftNode()
+	{
+		return left;
+	}
+	
+	public int getCounter()
+	{
+		return huffmanCode;
+	}
+	
+	public void add(int count)
+	{
+		this.huffmanCode += count;
+	}
+	
+	public int compareTo(Node other)
+	{
+		return this.huffmanCode - huffmanCode;
+	}
+	
+	public String toString()
+	{
+		return "Letter: " + letter + "Counter: " + huffmanCode;
+	}
+}

@@ -3,7 +3,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class RunLengthDecoder
+public class RunLengthDecoder //DONE
 {
 	public static void main(String[] args) throws IOException 
 	{
@@ -17,21 +17,22 @@ public class RunLengthDecoder
 		FileWriter fw = new FileWriter("outputDecoder.txt");
 
 		currentChar = (char) br.read();
+		
 		while(br.ready())
 		{
-			nextChar = (char) br.read();	
+			nextChar = (char) br.read();
 			totalNumber = 1;
 
 
 			if(currentChar == nextChar)
 			{
-				totalNumber = br.read();
+				totalNumber = br.read(); //read as an int
 				
 				for(int counter = 0; counter < totalNumber; counter++)
 				{
 					fw.write(currentChar);
-					currentChar = nextChar;
 				}
+				currentChar = nextChar;
 			}
 			
 			else
@@ -45,5 +46,3 @@ public class RunLengthDecoder
 		fw.close();
 	}
 }
-
-

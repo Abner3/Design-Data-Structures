@@ -2,21 +2,21 @@ import java.io.*;
 
 public class RunLengthEncoder 
 {
-	public static void main (String[] args)
+	public static void main (String[] args) throws IOException
 	{
 		char currentChar, nextChar;
 		int counter;
 		
 		
-		BufferedReader br = new BufferedReader(new FileReader("RLEencodetest.txt"));
+		BufferedReader br = new BufferedReader(new FileReader("RLEencodeTest.txt"));
 		FileWriter fw = new FileWriter("outputEncoder.txt");
 		
-		currentChar = br.read();
+		currentChar = (char) br.read();
 		
 		while(br.ready())
 		{
-			counter = 0;
-			nextChar = br.read();
+			counter = 0; //counts the successive # of occurrences of a specific character
+			nextChar = (char) br.read();
 			
 			//checks if the character is repeated
 			if(currentChar == nextChar)
@@ -25,12 +25,12 @@ public class RunLengthEncoder
 				while(currentChar == nextChar)
 				{
 					currentChar = nextChar;
-					nextChar = br.read();
+					nextChar = (char) br.read();
 					counter++;
 				}
 				
 				//counted and have the currentChar
-				fw.write(currentChar + (char)counter);
+				fw.write(currentChar + (int)counter); //check the counter part
 				
 				//getting ready for the next characters
 				currentChar = nextChar;

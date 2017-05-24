@@ -28,14 +28,7 @@ public class GreatGatsbyTester {
 		chainOrder = 2; numOfCharacters = 100; fileNameIn = "thegreatgatsby.txt"; fileNameOut = "thegreatgastby2.txt";
 		
 		GreatGatsby first = new GreatGatsby(fileNameIn, chainOrder, fileNameOut, numOfCharacters);
-		
-		StringBuffer gatsbyStringBuffer = new StringBuffer();
-		BufferedReader br = new BufferedReader(new FileReader(fileNameIn));
-		while(br.ready())
-		{
-			gatsbyStringBuffer.append((char)br.read());
-		}
-		first.computeCombinations(gatsbyStringBuffer.toString());
+						
 		
 		
 		br.close();
