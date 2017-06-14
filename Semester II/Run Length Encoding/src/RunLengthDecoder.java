@@ -11,7 +11,7 @@ public class RunLengthDecoder //DONE
 		int totalNumber;
 
 
-		BufferedReader br = new BufferedReader(new FileReader("RLEdecodeTest.txt"));
+		BufferedReader br = new BufferedReader(new FileReader("RLEmystery.txt"));
 
 
 		FileWriter fw = new FileWriter("outputDecoder.txt");

@@ -1,9 +1,10 @@
 
 public class Node implements Comparable<Node>
 {
-	int frequency, huffmanCode;
-	char letter;
-	Node left, right;
+	protected int frequency;
+	protected String huffmanCode;
+	protected char letter;
+	protected Node left, right;
 	
 	
 	//for nodes that have a letter
@@ -11,6 +12,7 @@ public class Node implements Comparable<Node>
 	{
 		this.letter = letter;
 		this.frequency = counter;
+		huffmanCode = "";
 	}
 	
 	//for nodes that don't have a letter associated in the huffman tree
@@ -19,7 +21,10 @@ public class Node implements Comparable<Node>
 		this.frequency = counter;
 		setRightNode(right);
 		setLeftNode(left);
+		huffmanCode = "";
 	}
+	
+	
 	
 	//setters
 	public void setRightNode(Node node1)
@@ -37,9 +42,9 @@ public class Node implements Comparable<Node>
 		this.frequency = frequency;
 	}
 	
-	public void setHuffmanCode(int huffmanCode)
+	public void setHuffmanCode(String code)
 	{
-		this.huffmanCode = huffmanCode;
+		this.huffmanCode = code;
 	}
 	
 	
@@ -59,16 +64,11 @@ public class Node implements Comparable<Node>
 		return frequency;
 	}
 	
-	public int getHuffmanCode(int huffmanCode)
+	public String getHuffmanCode()
 	{
 		return huffmanCode;
 	}
 	
-	public int addHuffmanCode(int huffmanCode)
-	{
-		this.huffmanCode += huffmanCode;
-		return huffmanCode;
-	}
 	
 	//action methods
 	public void add(int count)
@@ -76,9 +76,14 @@ public class Node implements Comparable<Node>
 		this.frequency += count;
 	}
 	
+	public void addHuffmanCode(String huffmanCode)
+	{
+		this.huffmanCode += huffmanCode;
+	}
+	
 	public int compareTo(Node other)
 	{
-		return this.frequency - frequency; //+ = this node is greater
+		return this.frequency - other.frequency; //+ = this node is greater
 	}
 	
 	public String toString()
