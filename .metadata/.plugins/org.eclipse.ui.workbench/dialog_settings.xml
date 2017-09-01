@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="WorkbenchPreferenceDialogSettings">
-		<item value="408" key="DIALOG_X_ORIGIN"/>
-		<item value="0" key="DIALOG_Y_ORIGIN"/>
+		<item value="360" key="DIALOG_X_ORIGIN"/>
+		<item value="-41" key="DIALOG_Y_ORIGIN"/>
 	</section>
 	<section name="org.eclipse.ui.internal.QuickAccess">
 		<item value="563" key="dialogHeight"/>
@@ -39,6 +39,8 @@
 		<item value="false" key="WizardFileSystemResourceImportPage1.STORE_CREATE_CONTAINER_STRUCTURE_ID"/>
 		<item value="false" key="WizardFileSystemResourceImportPage1.STORE_OVERWRITE_EXISTING_RESOURCES_ID"/>
 		<list key="WizardFileSystemResourceImportPage1.STORE_SOURCE_NAMES_ID">
+			<item value="/Users/admin/Downloads/lzw"/>
+			<item value="/Users/admin/Downloads/debugging"/>
 			<item value="/Users/admin/Downloads/Huffman"/>
 			<item value="/Users/admin/Downloads"/>
 			<item value="/Users/admin/Downloads/RLEtestsv2"/>
